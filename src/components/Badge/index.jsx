@@ -2,10 +2,10 @@ import React from 'react'
 
 import './Badge.scss'
 
-const Badge = ( {color} ) => {
+const Badge = ( {color, onClick} ) => {
     return (
         <div>
-            <i className={`badge badge--${color}`}></i>
+            <i onClick={onClick} className={`badge badge--${color}`}></i>
         </div>
     )
 }
