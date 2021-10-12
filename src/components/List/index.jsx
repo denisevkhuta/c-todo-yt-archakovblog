@@ -7,7 +7,7 @@ import './List.scss'
 import Badge from '../Badge';
 
 const List = ({ items, isRemovable, click, onRemove }) => {
-    console.log(onRemove);
+    
     return (
         <ul onClick = {click} className="list">
             {

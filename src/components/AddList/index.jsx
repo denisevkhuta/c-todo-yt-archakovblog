@@ -18,7 +18,7 @@ const AddList = ({ colors, onAdd }) => {
             if (Array.isArray(colors)) {
                 selectColor(colors[0].id)
             }
-        }, 
+        },
         [colors]
     )
 
@@ -29,25 +29,32 @@ const AddList = ({ colors, onAdd }) => {
     }
 
     const addList = () => {
-        
+
         if (!inputValue) {
             alert('Введите название списка');
             return;
         }
 
-        const color = colors.filter(c => c.id === selectedColor)[0].id;
 
         axios
-        .post('http://localhost:3001/lists', {name: inputValue, colorId: color})
-        .then(  ({data}) => {
-            console.log(data)
-        })
+            .post('http://localhost:3001/lists', { name: inputValue, colorId: selectedColor })
+            .then(({ data }) => {
 
-        // onAdd({
-        //     id: Math.random(),
-        //     name: inputValue,
-        //     color
-        // });
+                const color = colors.filter(c => c.id === selectedColor)[0].id;
+                const colorName = colors.filter(c => c.id === selectedColor)[0].name;
+                
+                console.log('colorName',colorName)
+                const listObj = {
+                    ...data,
+                    color: {
+                        id: color,
+                        name: colorName,
+                    }
+                }
+                console.log('listObj',listObj)
+                onAdd(listObj);
+            })
+
 
         onClose();
     }

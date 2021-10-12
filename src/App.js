@@ -37,9 +37,10 @@ function App() {
               active: true
             }
           ]} />
+          {console.log(lists)}
         <List
           items={lists}
-          onRemove={(item) => console.log(item)}
+          onRemove={(item) => ''}
           isRemovable />
         <AddList onAdd={onAddList} colors={colors} />
       </div>
