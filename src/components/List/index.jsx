@@ -27,4 +27,4 @@ const List = ({ items, isRemovable, click, onRemove }) => {
     );
 }
 
-export default List;
+export default List; 
