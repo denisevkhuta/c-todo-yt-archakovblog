@@ -37,10 +37,13 @@ function App() {
               active: true
             }
           ]} />
-          {console.log(lists)}
+
         <List
           items={lists}
-          onRemove={(item) => ''}
+          onRemove={id => {
+            const newLists = lists.filter(item => item.id !== id)
+            setLists(newLists)
+          }}
           isRemovable />
         <AddList onAdd={onAddList} colors={colors} />
       </div>
