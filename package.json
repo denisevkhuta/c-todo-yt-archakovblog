@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "fake-json": "json-server ./src/assets/db.json --watch --port 3001"
+    "server": "node server.js",
+    "json-server": "json-server --watch public/db.json --port=3001"
   },
   "eslintConfig": {
     "extends": [
